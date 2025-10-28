@@ -1,160 +1,259 @@
-<header class="w-full bg-white dark:bg-[#111827] shadow-sm fixed top-0 z-50 border-b border-gray-200 dark:border-gray-800">
-  <div class="mx-auto max-w-container-xl px-6 md:px-16 lg:px-20 py-4 flex items-center justify-between">
+<header
+  class="w-full bg-white dark:bg-[#111827] shadow-sm fixed top-0 z-50 border-b border-gray-200 dark:border-gray-800"
+>
+  <div
+    class="mx-auto max-w-container-xl px-6 md:px-16 lg:px-20 py-4 flex items-center justify-between"
+  >
     <a href="/" class="flex items-center gap-3">
-      <div class="w-10 h-10 rounded-full bg-[#9B8AFB] flex items-center justify-center">
-        <svg data-lucide="ticket" class="w-6 h-6 text-white"></svg>
+      <div
+        class="w-10 h-10 rounded-full bg-[#9B8AFB] flex items-center justify-center"
+      >
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="24"
+          height="24"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="white"
+          stroke-width="2"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          class="lucide lucide-ticket-icon lucide-ticket"
+        >
+          <path
+            d="M2 9a3 3 0 0 1 0 6v2a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2v-2a3 3 0 0 1 0-6V7a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2Z"
+          />
+          <path d="M13 5v2" />
+          <path d="M13 17v2" />
+          <path d="M13 11v2" />
+        </svg>
       </div>
-      <div class="text-lg font-semibold text-[#111827] dark:text-white">TicketApp</div>
+      <div class="text-lg font-semibold text-[#111827] dark:text-white">
+        TicketApp
+      </div>
     </a>
 
-    <nav class="hidden md:flex items-center gap-8 absolute left-1/2 transform -translate-x-1/2">
-      <a href="/" class="text-base text-[#111827] dark:text-white hover:text-[#9B8AFB]">Home</a>
-      <a href="/tickets" class="text-base text-[#111827] dark:text-white hover:text-[#9B8AFB]">Tickets</a>
-      <a href="/dashboard" class="text-base text-[#111827] dark:text-white hover:text-[#9B8AFB]">Dashboard</a>
+    <nav
+      class="hidden md:flex items-center gap-8 absolute left-1/2 transform -translate-x-1/2"
+    >
+      <a
+        href="/"
+        class="text-base text-[#111827] dark:text-white hover:text-[#9B8AFB]"
+        >Home</a
+      >
+      <a
+        href="/tickets"
+        class="text-base text-[#111827] dark:text-white hover:text-[#9B8AFB]"
+        >Tickets</a
+      >
+      <a
+        href="/dashboard"
+        class="text-base text-[#111827] dark:text-white hover:text-[#9B8AFB]"
+        >Dashboard</a
+      >
     </nav>
 
     <div class="hidden md:flex items-center gap-4" id="header-right">
-      <!-- Profile section (hidden by default) -->
-      <div id="profile-section" class="hidden flex items-center gap-3">
+      <div id="profile-section" class="hidden items-center gap-3">
         <div class="flex items-center gap-2">
-          <div id="user-avatar" class="w-8 h-8 rounded-full bg-[#9B8AFB] text-white font-semibold flex items-center justify-center text-sm"></div>
-          <div id="user-name" class="text-sm font-medium text-[#111827] dark:text-white"></div>
+          <div
+            id="user-avatar"
+            class="w-8 h-8 rounded-full bg-[#9B8AFB] text-white font-semibold flex items-center justify-center text-sm"
+          ></div>
+          <div
+            id="user-name"
+            class="text-sm font-medium text-[#111827] dark:text-white"
+          ></div>
         </div>
-        <button id="logout-btn" class="px-3 py-1 font-semibold cursor-pointer text-[#9B8AFB] text-base hover:text-[#9B8AFB]/80">Logout</button>
+        <button
+          id="logout-btn"
+          class="px-3 py-1 font-semibold cursor-pointer text-[#9B8AFB] text-base hover:text-[#9B8AFB]/80"
+        >
+          Logout
+        </button>
       </div>
-      <!-- Login button (shown by default) -->
-      <a href="/login" id="login-btn" class="px-3 py-1 bg-[#9B8AFB] cursor-pointer text-white rounded text-base hover:bg-[#9B8AFB]/90">Login</a>
+      <a
+        href="/login"
+        id="login-btn"
+        class="px-3 py-1 bg-[#9B8AFB] cursor-pointer text-white rounded text-base hover:bg-[#9B8AFB]/90"
+        >Login</a
+      >
     </div>
 
-    <button id="mobile-menu-btn" class="md:hidden cursor-pointer p-2 rounded-lg text-[#111827] dark:text-white hover:bg-[#9B8AFB]/10">
-      <svg data-lucide="menu" class="w-6 h-6"></svg>
+    <button
+      id="mobile-menu-btn"
+      class="md:hidden cursor-pointer p-2 rounded-lg text-[#111827] dark:text-white hover:bg-[#9B8AFB]/10"
+    >
+      <svg
+        class="w-6 h-6"
+        fill="none"
+        stroke="currentColor"
+        viewBox="0 0 24 24"
+      >
+        <path
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          stroke-width="2"
+          d="M4 6h16M4 12h16M4 18h16"
+        />
+      </svg>
     </button>
   </div>
 
-  <!-- Mobile Side Drawer -->
-  <div id="mobile-overlay" class="fixed inset-0 bg-black/40 backdrop-blur-sm z-40 hidden"></div>
-  <nav id="mobile-drawer" class="fixed right-0 top-0 h-full w-72 sm:w-80 bg-white dark:bg-[#111827] border-l border-gray-200 dark:border-gray-700 shadow-xl z-50 p-6 flex flex-col justify-between transform translate-x-full transition-transform duration-300">
+  <div
+    id="mobile-overlay"
+    class="fixed inset-0 bg-black/40 backdrop-blur-sm z-40 hidden"
+  ></div>
+  <nav
+    id="mobile-drawer"
+    class="fixed right-0 top-0 h-full w-72 sm:w-80 bg-white dark:bg-[#111827] border-l border-gray-200 dark:border-gray-700 shadow-xl z-50 p-6 flex flex-col justify-between transform translate-x-full transition-transform duration-300"
+  >
     <div>
       <div class="flex items-center justify-between mb-8">
-        <h2 class="text-base font-semibold text-[#111827] dark:text-white">TicketApp</h2>
-        <button id="mobile-close-btn" class="p-2 text-[#111827] cursor-pointer dark:text-white hover:bg-[#9B8AFB]/10 rounded-lg">
-          <svg data-lucide="x" class="w-6 h-6"></svg>
+        <h2 class="text-base font-semibold text-[#111827] dark:text-white">
+          TicketApp
+        </h2>
+        <button
+          id="mobile-close-btn"
+          class="p-2 text-[#111827] cursor-pointer dark:text-white hover:bg-[#9B8AFB]/10 rounded-lg"
+        >
+          <svg
+            class="w-6 h-6"
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M6 18L18 6M6 6l12 12"
+            />
+          </svg>
         </button>
       </div>
-      
+
       <div class="flex flex-col gap-5">
-        <a href="/" class="text-base text-[#111827] dark:text-white hover:text-[#9B8AFB]">Home</a>
-        <a href="/tickets" class="text-base text-[#111827] dark:text-white hover:text-[#9B8AFB]">Tickets</a>
-        <a href="/dashboard" class="text-base text-[#111827] dark:text-white hover:text-[#9B8AFB]">Dashboard</a>
-        
-        <!-- Mobile profile section -->
-        <div id="mobile-profile" class="hidden flex-col border-t border-gray-200 pt-4 mt-8">
+        <a
+          href="/"
+          class="text-base text-[#111827] dark:text-white hover:text-[#9B8AFB]"
+          >Home</a
+        >
+        <a
+          href="/tickets"
+          class="text-base text-[#111827] dark:text-white hover:text-[#9B8AFB]"
+          >Tickets</a
+        >
+        <a
+          href="/dashboard"
+          class="text-base text-[#111827] dark:text-white hover:text-[#9B8AFB]"
+          >Dashboard</a
+        >
+
+        <div
+          id="mobile-profile"
+          class="hidden flex-col border-t border-gray-200 pt-4 mt-8"
+        >
           <div class="flex items-center gap-2">
-            <div id="mobile-user-avatar" class="w-8 h-8 rounded-full bg-[#9B8AFB] text-white font-semibold flex items-center justify-center text-sm"></div>
-            <span id="mobile-user-name" class="text-sm text-[#111827] dark:text-white"></span>
+            <div
+              id="mobile-user-avatar"
+              class="w-8 h-8 rounded-full bg-[#9B8AFB] text-white font-semibold flex items-center justify-center text-sm"
+            ></div>
+            <span
+              id="mobile-user-name"
+              class="text-sm text-[#111827] dark:text-white"
+            ></span>
           </div>
-          <button id="mobile-logout-btn" class="text-[#9B8AFB] cursor-pointer font-semibold text-sm mt-2 text-left">Logout</button>
+          <button
+            id="mobile-logout-btn"
+            class="text-[#9B8AFB] cursor-pointer font-semibold text-sm mt-2 text-left"
+          >
+            Logout
+          </button>
         </div>
-        
-        <!-- Mobile login button -->
-        <a href="/login" id="mobile-login-btn" class="mt-4 px-3 py-2 bg-[#9B8AFB] cursor-pointer text-white rounded text-center text-base hover:bg-[#9B8AFB]/90">Login</a>
+
+        <a
+          href="/login"
+          id="mobile-login-btn"
+          class="mt-4 px-3 py-2 bg-[#9B8AFB] cursor-pointer text-white rounded text-center text-base hover:bg-[#9B8AFB]/90"
+          >Login</a
+        >
       </div>
     </div>
   </nav>
 </header>
 
 <script>
-// Header functionality
-document.addEventListener('DOMContentLoaded', function() {
-  const mobileMenuBtn = document.getElementById('mobile-menu-btn');
-  const mobileCloseBtn = document.getElementById('mobile-close-btn');
-  const mobileOverlay = document.getElementById('mobile-overlay');
-  const mobileDrawer = document.getElementById('mobile-drawer');
-  
-  // Mobile menu toggle
-  function openMobileMenu() {
-    mobileOverlay.classList.remove('hidden');
-    mobileDrawer.classList.remove('translate-x-full');
-    document.body.style.overflow = 'hidden';
-  }
-  
-  function closeMobileMenu() {
-    mobileOverlay.classList.add('hidden');
-    mobileDrawer.classList.add('translate-x-full');
-    document.body.style.overflow = '';
-  }
-  
-  mobileMenuBtn?.addEventListener('click', openMobileMenu);
-  mobileCloseBtn?.addEventListener('click', closeMobileMenu);
-  mobileOverlay?.addEventListener('click', closeMobileMenu);
-  
-  // Get initials helper
-  function getInitials(name) {
-    if (!name) return '';
-    const parts = name.trim().split(' ').filter(Boolean);
-    if (parts.length === 0) return '';
-    if (parts.length === 1) return parts[0][0].toUpperCase();
-    return (parts[0][0] + parts[1][0]).toUpperCase();
-  }
-  
-  // Session management
-  function getSession() {
-    // Get session from server-side template variable
-    return {{ user ? user|json_encode|raw : 'null' }};
-  }
-  
-  function clearSession() {
-    localStorage.removeItem('user');
-    updateHeader();
-  }
-  
-  // Update header based on session
-  function updateHeader() {
-    const session = getSession();
-    const profileSection = document.getElementById('profile-section');
-    const loginBtn = document.getElementById('login-btn');
-    const mobileProfile = document.getElementById('mobile-profile');
-    const mobileLoginBtn = document.getElementById('mobile-login-btn');
-    
-    if (session) {
-      // Show profile, hide login
-      profileSection?.classList.remove('hidden');
-      profileSection?.classList.add('flex');
-      loginBtn?.classList.add('hidden');
-      mobileProfile?.classList.remove('hidden');
-      mobileProfile?.classList.add('flex');
-      mobileLoginBtn?.classList.add('hidden');
-      
-      // Update user info
-      const initials = getInitials(session.name);
-      document.getElementById('user-avatar').textContent = initials;
-      document.getElementById('user-name').textContent = session.name;
-      document.getElementById('mobile-user-avatar').textContent = initials;
-      document.getElementById('mobile-user-name').textContent = session.name;
-    } else {
-      // Show login, hide profile
-      profileSection?.classList.add('hidden');
-      loginBtn?.classList.remove('hidden');
-      mobileProfile?.classList.add('hidden');
-      mobileLoginBtn?.classList.remove('hidden');
+  document.addEventListener('DOMContentLoaded', function() {
+    const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+    const mobileCloseBtn = document.getElementById('mobile-close-btn');
+    const mobileOverlay = document.getElementById('mobile-overlay');
+    const mobileDrawer = document.getElementById('mobile-drawer');
+
+    function openMobileMenu() {
+      mobileOverlay.classList.remove('hidden');
+      mobileDrawer.classList.remove('translate-x-full');
+      document.body.style.overflow = 'hidden';
     }
-  }
-  
-  // Logout handlers
-  document.getElementById('logout-btn')?.addEventListener('click', function() {
-    window.location.href = '/?action=logout';
+
+    function closeMobileMenu() {
+      mobileOverlay.classList.add('hidden');
+      mobileDrawer.classList.add('translate-x-full');
+      document.body.style.overflow = '';
+    }
+
+    mobileMenuBtn?.addEventListener('click', openMobileMenu);
+    mobileCloseBtn?.addEventListener('click', closeMobileMenu);
+    mobileOverlay?.addEventListener('click', closeMobileMenu);
+
+    function getInitials(name) {
+      if (!name) return '';
+      const parts = name.trim().split(' ').filter(Boolean);
+      if (parts.length === 0) return '';
+      if (parts.length === 1) return parts[0][0].toUpperCase();
+      return (parts[0][0] + parts[1][0]).toUpperCase();
+    }
+
+    function getSession() {
+      return {{ user is defined and user ? user|json_encode|raw : 'null' }};
+    }
+
+    function updateHeader() {
+      const session = getSession();
+      const profileSection = document.getElementById('profile-section');
+      const loginBtn = document.getElementById('login-btn');
+      const mobileProfile = document.getElementById('mobile-profile');
+      const mobileLoginBtn = document.getElementById('mobile-login-btn');
+
+      if (session) {
+        profileSection?.classList.remove('hidden');
+        profileSection?.classList.add('flex');
+        loginBtn?.classList.add('hidden');
+        mobileProfile?.classList.remove('hidden');
+        mobileProfile?.classList.add('flex');
+        mobileLoginBtn?.classList.add('hidden');
+
+        const initials = getInitials(session.name);
+        document.getElementById('user-avatar').textContent = initials;
+        document.getElementById('user-name').textContent = session.name;
+        document.getElementById('mobile-user-avatar').textContent = initials;
+        document.getElementById('mobile-user-name').textContent = session.name;
+      } else {
+        profileSection?.classList.add('hidden');
+        loginBtn?.classList.remove('hidden');
+        mobileProfile?.classList.add('hidden');
+        mobileLoginBtn?.classList.remove('hidden');
+      }
+    }
+
+    document.getElementById('logout-btn')?.addEventListener('click', function() {
+      window.location.href = '/?action=logout';
+    });
+
+    document.getElementById('mobile-logout-btn')?.addEventListener('click', function() {
+      window.location.href = '/?action=logout';
+    });
+
+    updateHeader();
   });
-  
-  document.getElementById('mobile-logout-btn')?.addEventListener('click', function() {
-    window.location.href = '/?action=logout';
-  });
-  
-  // Initialize header
-  updateHeader();
-  
-  // Initialize Lucide icons
-  if (typeof lucide !== 'undefined') {
-    lucide.createIcons();
-  }
-});
 </script>

@@ -5,9 +5,8 @@
     <meta name="viewport" content="width=device-width,initial-scale=1" />
     <title>TicketApp</title>
     <link rel="stylesheet" href="/assets/css/index.css" />
-    <!-- Icons: lucide -->
-    <script src="https://cdn.jsdelivr.net/npm/lucide@0.258.0/dist/lucide.js"></script>
-    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@3.3.2/dist/tailwind.min.css" rel="stylesheet">
+    <script src="https://unpkg.com/heroicons@2.0.18/24/outline/index.js" type="module"></script>
+
   </head>
   <body class="bg-white dark:bg-[#111827] text-[#111827] dark:text-white transition-colors duration-300">
     {% include 'components/header.html.twig' %}
@@ -18,13 +17,6 @@
 
     {% include 'components/footer.html.twig' %}
 
-    <script>
-      // Initialize Lucide icons when page loads
-      document.addEventListener('DOMContentLoaded', function() {
-        if (typeof lucide !== 'undefined') {
-          lucide.createIcons();
-        }
-      });
-    </script>
+
   </body>
 </html>
