@@ -1,103 +1,32 @@
 {% extends 'base.html.twig' %}
-
 {% block content %}
-<div class="pt-20 min-h-screen bg-gray-50">
-  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
-    <div class="mb-8">
-      <h1 class="text-3xl font-bold text-gray-900">Support Tickets</h1>
-      <p class="mt-2 text-gray-600">Manage and track your support requests</p>
-    </div>
-
-    <!-- Create Ticket Button -->
-    <div class="mb-6">
-      <button class="bg-[#9B8AFB] text-white px-4 py-2 rounded-lg hover:bg-[#9B8AFB]/90 transition-colors">
-        Create New Ticket
+<div class="bg-white dark:bg-[#111827] text-[#111827] px-6 md:px-16 lg:px-20 dark:text-white font-display py-16 mt-14 mb-20 md:mb-26">
+  <div class="mx-auto max-w-7xl w-full">
+    <header class="flex items-center bg-white dark:bg-[#111827] justify-between sticky top-0 z-10">
+      <div class="flex items-center gap-3">
+        <h1 class="text-xl font-bold leading-tight tracking-[-0.015em]">Manage your Tickets</h1>
+      </div>
+      <button id="create-ticket-btn" class="bg-[#9B8AFB] text-white font-medium py-3 px-3 sm:px-5 rounded-full hover:bg-opacity-90 flex items-center gap-2">
+        <svg data-lucide="plus" class="w-5 h-5"></svg>
+        <span class="hidden sm:inline">Create New Ticket</span>
       </button>
-    </div>
+    </header>
 
-    <!-- Tickets List -->
-    <div class="bg-white shadow rounded-lg">
-      <div class="px-6 py-4 border-b border-gray-200">
-        <h2 class="text-lg font-medium text-gray-900">Your Tickets</h2>
-      </div>
-      
-      <div class="divide-y divide-gray-200">
-        <!-- Sample Ticket 1 -->
-        <div class="px-6 py-4 hover:bg-gray-50">
-          <div class="flex items-center justify-between">
-            <div class="flex-1">
-              <div class="flex items-center">
-                <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-yellow-100 text-yellow-800">
-                  Open
-                </span>
-                <h3 class="ml-3 text-sm font-medium text-gray-900">Login Issues</h3>
-              </div>
-              <p class="mt-1 text-sm text-gray-500">Cannot access my account after password reset</p>
-              <div class="mt-2 flex items-center text-xs text-gray-400">
-                <span>Created: 2 hours ago</span>
-                <span class="mx-2">•</span>
-                <span>Priority: Medium</span>
-              </div>
-            </div>
-            <div class="ml-4">
-              <button class="text-[#9B8AFB] hover:text-[#9B8AFB]/80 text-sm font-medium">
-                View Details
-              </button>
-            </div>
-          </div>
-        </div>
-
-        <!-- Sample Ticket 2 -->
-        <div class="px-6 py-4 hover:bg-gray-50">
-          <div class="flex items-center justify-between">
-            <div class="flex-1">
-              <div class="flex items-center">
-                <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-green-100 text-green-800">
-                  Resolved
-                </span>
-                <h3 class="ml-3 text-sm font-medium text-gray-900">Feature Request</h3>
-              </div>
-              <p class="mt-1 text-sm text-gray-500">Add dark mode support to the application</p>
-              <div class="mt-2 flex items-center text-xs text-gray-400">
-                <span>Created: 1 day ago</span>
-                <span class="mx-2">•</span>
-                <span>Priority: Low</span>
-              </div>
-            </div>
-            <div class="ml-4">
-              <button class="text-[#9B8AFB] hover:text-[#9B8AFB]/80 text-sm font-medium">
-                View Details
-              </button>
-            </div>
-          </div>
-        </div>
-
-        <!-- Sample Ticket 3 -->
-        <div class="px-6 py-4 hover:bg-gray-50">
-          <div class="flex items-center justify-between">
-            <div class="flex-1">
-              <div class="flex items-center">
-                <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-red-100 text-red-800">
-                  Urgent
-                </span>
-                <h3 class="ml-3 text-sm font-medium text-gray-900">System Error</h3>
-              </div>
-              <p class="mt-1 text-sm text-gray-500">Application crashes when uploading files</p>
-              <div class="mt-2 flex items-center text-xs text-gray-400">
-                <span>Created: 3 hours ago</span>
-                <span class="mx-2">•</span>
-                <span>Priority: High</span>
-              </div>
-            </div>
-            <div class="ml-4">
-              <button class="text-[#9B8AFB] hover:text-[#9B8AFB]/80 text-sm font-medium">
-                View Details
-              </button>
-            </div>
-          </div>
+    <main class="mt-8">
+      <div class="mb-8 md:flex md:justify-center">
+        <div class="relative">
+          <svg data-lucide="search" class="absolute left-4 top-1/2 -translate-y-1/2 text-gray-400 w-5 h-5"></svg>
+          <input id="ticket-search" placeholder="Search tickets by title, description..." class="w-full sm:w-[600px] md:w-[800px] pl-12 pr-4 py-3 rounded-full border border-gray-300 dark:border-gray-700 bg-white dark:bg-gray-800 text-xs sm:text-base" />
         </div>
       </div>
-    </div>
+
+      <div id="tickets-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+        <!-- JS will inject ticket cards -->
+      </div>
+    </main>
   </div>
 </div>
+
+{% include 'modals/ticket-modal.html.twig' %}
+{% include 'modals/delete-modal.html.twig' %}
 {% endblock %}
