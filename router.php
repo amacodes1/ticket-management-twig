@@ -53,7 +53,7 @@ switch ($requestUri) {
         break;
     case 'tickets':
         requireAuth();
-        $template = 'pages/tickets.html.twig';
+        $template = 'pages/tickets-page.html.twig';
         break;
     default:
         $template = 'pages/landing.html.twig';
