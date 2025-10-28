@@ -1,0 +1,206 @@
+@import url("https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap");
+
+/* Tailwind CSS Reset */
+*,
+::before,
+::after {
+  box-sizing: border-box;
+  border-width: 0;
+  border-style: solid;
+  border-color: #e5e7eb;
+}
+
+::before,
+::after {
+  --tw-content: '';
+}
+
+html {
+  line-height: 1.5;
+  -webkit-text-size-adjust: 100%;
+  -moz-tab-size: 4;
+  tab-size: 4;
+  font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif;
+  font-feature-settings: normal;
+  font-variation-settings: normal;
+}
+
+body {
+  margin: 0;
+  line-height: inherit;
+}
+
+/* Custom CSS variables */
+:root {
+  --bg: #ffffff;
+  --text: #111827;
+  --primary: #9b8afb;
+  --container-max: 1440px;
+}
+
+.dark {
+  --bg: #0f172a;
+  --text: #f9fafb;
+  --primary: #9b8afb;
+}
+
+body {
+  background-color: var(--bg);
+  color: var(--text);
+  transition: background-color 0.3s, color 0.3s;
+  font-family: "Quicksand", sans-serif;
+  margin: 0;
+  padding: 0;
+  min-height: max(884px, 100dvh);
+}
+
+/* Layout */
+.fixed { position: fixed; }
+.absolute { position: absolute; }
+.relative { position: relative; }
+.top-0 { top: 0px; }
+.left-1\/2 { left: 50%; }
+.z-50 { z-index: 50; }
+
+/* Flexbox */
+.flex { display: flex; }
+.hidden { display: none; }
+.items-center { align-items: center; }
+.justify-between { justify-content: space-between; }
+
+/* Spacing */
+.mx-auto { margin-left: auto; margin-right: auto; }
+.gap-3 { gap: 0.75rem; }
+.gap-4 { gap: 1rem; }
+.gap-8 { gap: 2rem; }
+.px-3 { padding-left: 0.75rem; padding-right: 0.75rem; }
+.px-6 { padding-left: 1.5rem; padding-right: 1.5rem; }
+.py-1 { padding-top: 0.25rem; padding-bottom: 0.25rem; }
+.py-4 { padding-top: 1rem; padding-bottom: 1rem; }
+.p-2 { padding: 0.5rem; }
+
+/* Sizing */
+.h-6 { height: 1.5rem; }
+.h-10 { height: 2.5rem; }
+.w-6 { width: 1.5rem; }
+.w-10 { width: 2.5rem; }
+.w-full { width: 100%; }
+.max-w-container-xl { max-width: 1440px; }
+.min-h-screen { min-height: 100vh; }
+
+/* Borders */
+.rounded { border-radius: 0.25rem; }
+.rounded-full { border-radius: 9999px; }
+.rounded-lg { border-radius: 0.5rem; }
+.border-b { border-bottom-width: 1px; }
+.border-gray-200 { border-color: #e5e7eb; }
+
+/* Colors */
+.bg-white { background-color: #ffffff; }
+.bg-\[#9B8AFB\] { background-color: #9B8AFB; }
+.bg-\[#9B8AFB\]\/10 { background-color: rgba(155, 138, 251, 0.1); }
+.bg-\[#9B8AFB\]\/20 { background-color: rgba(155, 138, 251, 0.2); }
+.bg-\[#111827\] { background-color: #111827; }
+.text-white { color: #ffffff; }
+.text-\[#111827\] { color: #111827; }
+.text-\[#9B8AFB\] { color: #9B8AFB; }
+.text-\[#111827\]\/80 { color: rgba(17, 24, 39, 0.8); }
+
+/* Typography */
+.text-base { font-size: 1rem; line-height: 1.5rem; }
+.text-lg { font-size: 1.125rem; line-height: 1.75rem; }
+.font-semibold { font-weight: 600; }
+
+/* Effects */
+.shadow-sm { box-shadow: 0 1px 2px 0 rgb(0 0 0 / 0.05); }
+.cursor-pointer { cursor: pointer; }
+
+/* Transforms */
+.transform { transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y)); }
+.-translate-x-1\/2 { --tw-translate-x: -50%; transform: translateX(-50%); }
+.rotate-180 { transform: rotate(180deg); }
+.opacity-80 { opacity: 0.8; }
+
+/* Transitions */
+.transition-colors { 
+  transition-property: color, background-color, border-color, text-decoration-color, fill, stroke; 
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1); 
+  transition-duration: 150ms; 
+}
+.duration-300 { transition-duration: 300ms; }
+
+/* Hover states */
+.hover\:text-\[#9B8AFB\]:hover { color: #9B8AFB; }
+.hover\:bg-\[#9B8AFB\]\/90:hover { background-color: rgba(155, 138, 251, 0.9); }
+.hover\:bg-\[#9B8AFB\]\/10:hover { background-color: rgba(155, 138, 251, 0.1); }
+.hover\:bg-\[#9B8AFB\]\/20:hover { background-color: rgba(155, 138, 251, 0.2); }
+
+/* Dark mode styles */
+.dark .dark\:bg-\[#111827\] { background-color: #111827; }
+.dark .dark\:border-gray-800 { border-color: #1f2937; }
+.dark .dark\:text-white { color: #ffffff; }
+.dark .text-white\/80 { color: rgba(255, 255, 255, 0.8); }
+
+/* Responsive styles */
+@media (min-width: 640px) {
+  .sm\:block { display: block; }
+  .sm\:flex-row { flex-direction: row; }
+  .sm\:text-base { font-size: 1rem; line-height: 1.5rem; }
+}
+
+@media (min-width: 768px) {
+  .md\:block { display: block; }
+  .md\:flex { display: flex; }
+  .md\:hidden { display: none; }
+  .md\:h-\[520px\] { height: 520px; }
+  .md\:px-16 { padding-left: 4rem; padding-right: 4rem; }
+  .md\:px-8 { padding-left: 2rem; padding-right: 2rem; }
+  .md\:text-xl { font-size: 1.25rem; line-height: 1.75rem; }
+  .md\:text-5xl { font-size: 3rem; line-height: 1; }
+  .md\:-mt-10 { margin-top: -2.5rem; }
+}
+
+@media (min-width: 1024px) {
+  .lg\:px-20 { padding-left: 5rem; padding-right: 5rem; }
+}
+
+/* Additional utility classes */
+.h-8 { height: 2rem; }
+.w-8 { width: 2rem; }
+.h-full { height: 100%; }
+.w-72 { width: 18rem; }
+.inset-0 { top: 0px; right: 0px; bottom: 0px; left: 0px; }
+.right-0 { right: 0px; }
+.z-40 { z-index: 40; }
+.border-l { border-left-width: 1px; }
+.border-t { border-top-width: 1px; }
+.border-gray-700 { border-color: #374151; }
+.bg-black\/40 { background-color: rgba(0, 0, 0, 0.4); }
+.shadow-xl { box-shadow: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 10px 10px -5px rgb(0 0 0 / 0.04); }
+.backdrop-blur-sm { backdrop-filter: blur(4px); }
+.translate-x-full { transform: translateX(100%); }
+.transition-transform { transition-property: transform; transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1); transition-duration: 150ms; }
+.font-medium { font-weight: 500; }
+.text-center { text-align: center; }
+.mt-2 { margin-top: 0.5rem; }
+.mt-4 { margin-top: 1rem; }
+.mt-8 { margin-top: 2rem; }
+.mb-8 { margin-bottom: 2rem; }
+.pt-4 { padding-top: 1rem; }
+.sm\:w-80 { width: 20rem; }
+
+/* Custom animations */
+.animate-fade-in-scale {
+  animation: fade-in-scale 0.2s ease-out forwards;
+}
+
+@keyframes fade-in-scale {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}

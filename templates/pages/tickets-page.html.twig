@@ -1,0 +1,103 @@
+{% extends 'base.html.twig' %}
+
+{% block content %}
+<div class="pt-20 min-h-screen bg-gray-50">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+    <div class="mb-8">
+      <h1 class="text-3xl font-bold text-gray-900">Support Tickets</h1>
+      <p class="mt-2 text-gray-600">Manage and track your support requests</p>
+    </div>
+
+    <!-- Create Ticket Button -->
+    <div class="mb-6">
+      <button class="bg-[#9B8AFB] text-white px-4 py-2 rounded-lg hover:bg-[#9B8AFB]/90 transition-colors">
+        Create New Ticket
+      </button>
+    </div>
+
+    <!-- Tickets List -->
+    <div class="bg-white shadow rounded-lg">
+      <div class="px-6 py-4 border-b border-gray-200">
+        <h2 class="text-lg font-medium text-gray-900">Your Tickets</h2>
+      </div>
+      
+      <div class="divide-y divide-gray-200">
+        <!-- Sample Ticket 1 -->
+        <div class="px-6 py-4 hover:bg-gray-50">
+          <div class="flex items-center justify-between">
+            <div class="flex-1">
+              <div class="flex items-center">
+                <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-yellow-100 text-yellow-800">
+                  Open
+                </span>
+                <h3 class="ml-3 text-sm font-medium text-gray-900">Login Issues</h3>
+              </div>
+              <p class="mt-1 text-sm text-gray-500">Cannot access my account after password reset</p>
+              <div class="mt-2 flex items-center text-xs text-gray-400">
+                <span>Created: 2 hours ago</span>
+                <span class="mx-2">•</span>
+                <span>Priority: Medium</span>
+              </div>
+            </div>
+            <div class="ml-4">
+              <button class="text-[#9B8AFB] hover:text-[#9B8AFB]/80 text-sm font-medium">
+                View Details
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Sample Ticket 2 -->
+        <div class="px-6 py-4 hover:bg-gray-50">
+          <div class="flex items-center justify-between">
+            <div class="flex-1">
+              <div class="flex items-center">
+                <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-green-100 text-green-800">
+                  Resolved
+                </span>
+                <h3 class="ml-3 text-sm font-medium text-gray-900">Feature Request</h3>
+              </div>
+              <p class="mt-1 text-sm text-gray-500">Add dark mode support to the application</p>
+              <div class="mt-2 flex items-center text-xs text-gray-400">
+                <span>Created: 1 day ago</span>
+                <span class="mx-2">•</span>
+                <span>Priority: Low</span>
+              </div>
+            </div>
+            <div class="ml-4">
+              <button class="text-[#9B8AFB] hover:text-[#9B8AFB]/80 text-sm font-medium">
+                View Details
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Sample Ticket 3 -->
+        <div class="px-6 py-4 hover:bg-gray-50">
+          <div class="flex items-center justify-between">
+            <div class="flex-1">
+              <div class="flex items-center">
+                <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-red-100 text-red-800">
+                  Urgent
+                </span>
+                <h3 class="ml-3 text-sm font-medium text-gray-900">System Error</h3>
+              </div>
+              <p class="mt-1 text-sm text-gray-500">Application crashes when uploading files</p>
+              <div class="mt-2 flex items-center text-xs text-gray-400">
+                <span>Created: 3 hours ago</span>
+                <span class="mx-2">•</span>
+                <span>Priority: High</span>
+              </div>
+            </div>
+            <div class="ml-4">
+              <button class="text-[#9B8AFB] hover:text-[#9B8AFB]/80 text-sm font-medium">
+                View Details
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}

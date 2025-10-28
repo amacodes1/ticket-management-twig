@@ -1,0 +1,11 @@
+{% extends 'base.html.twig' %}
+
+{% block content %}
+  <div class="text-[#111827] dark:text-white mt-20 transition-colors duration-300">
+    <div class="relative w-full max-w-7xl mx-auto">
+      {% include 'components/hero.html.twig' %}
+      {% include 'components/challenges.html.twig' %}
+      {% include 'components/features.html.twig' %}
+    </div>
+  </div>
+{% endblock %}

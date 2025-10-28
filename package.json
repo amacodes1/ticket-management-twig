@@ -1,0 +1,19 @@
+{
+  "name": "twig-ticketapp",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Ticket App",
+  "scripts": {
+    "build-css": "tailwindcss -i ./assets/src/css/index.css -o ./public/assets/css/index.css --watch",
+    "build": "tailwindcss -i ./assets/src/css/index.css -o ./public/assets/css/index.css",
+    "watch-css": "tailwindcss -i ./assets-src/css/index.css -o ./public/assets/main.css --watch"
+  },
+  "dependencies": {
+    "@tailwindcss/postcss": "^4.1.16",
+    "postcss": "^8.5.6",
+    "postcss-loader": "^8.2.0"
+  },
+  "devDependencies": {
+    "tailwindcss": "^4.1.16"
+  }
+}

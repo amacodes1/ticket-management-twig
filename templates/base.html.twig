@@ -1,0 +1,29 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>TicketApp</title>
+    <link rel="stylesheet" href="/assets/css/index.css" />
+    <!-- Icons: lucide -->
+    <script src="https://cdn.jsdelivr.net/npm/lucide@0.258.0/dist/lucide.js"></script>
+  </head>
+  <body class="bg-white dark:bg-[#111827] text-[#111827] dark:text-white transition-colors duration-300">
+    {% include 'components/header.html.twig' %}
+
+    <main class="min-h-screen">
+      {% block content %}{% endblock %}
+    </main>
+
+    {% include 'components/footer.html.twig' %}
+
+    <script>
+      // Initialize Lucide icons when page loads
+      document.addEventListener('DOMContentLoaded', function() {
+        if (typeof lucide !== 'undefined') {
+          lucide.createIcons();
+        }
+      });
+    </script>
+  </body>
+</html>
