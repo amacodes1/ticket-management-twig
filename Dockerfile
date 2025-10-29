@@ -25,10 +25,12 @@ COPY . /var/www/html/
 WORKDIR /var/www/html/
 
 # Install PHP dependencies
-RUN composer install
+RUN composer install --no-dev --optimize-autoloader
 
 # Install NPM dependencies and build Tailwind CSS
-RUN npm install && npm run build
+RUN npm ci
+RUN npm run build
 
 # Set permissions
 RUN chown -R www-data:www-data /var/www/html
+RUN chmod -R 755 /var/www/html/public

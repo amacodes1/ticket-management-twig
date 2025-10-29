@@ -1,7 +1,9 @@
 services:
   - type: web
-    name: twig-app
+    name: ticketapp
     env: docker
-    plan: free
-    dockerfilePath: Dockerfile
-    autoDeploy: true
+    dockerfilePath: ./Dockerfile
+    buildCommand: |
+      npm install
+      npm run build
+    startCommand: apache2-foreground
