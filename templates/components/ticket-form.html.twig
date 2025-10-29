@@ -1,0 +1,72 @@
+<div id="ticket-modal" class="fixed inset-0 bg-black/90 backdrop-blur-sm z-50 hidden">
+  <div class="flex items-center justify-center min-h-screen p-4">
+    <div class="bg-white dark:bg-gray-800 rounded-xl shadow-xl w-full max-w-md">
+      <div class="p-6">
+        <h2 id="modal-title" class="text-xl font-bold text-[#111827] dark:text-white mb-6">Create New Ticket</h2>
+        
+        <form id="ticket-form" class="space-y-4">
+          <div>
+            <label class="block text-sm font-medium text-[#111827] dark:text-white mb-2" for="title">
+              Title *
+            </label>
+            <input
+              id="title"
+              name="title"
+              type="text"
+              required
+              class="w-full px-4 py-3 border border-gray-300 dark:border-gray-600 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#9B8AFB] bg-white dark:bg-gray-700 text-[#111827] dark:text-white"
+              placeholder="Enter ticket title"
+            />
+            <p id="title-error" class="text-red-500 text-sm mt-1"></p>
+          </div>
+          
+          <div>
+            <label class="block text-sm font-medium text-[#111827] dark:text-white mb-2" for="description">
+              Description
+            </label>
+            <textarea
+              id="description"
+              name="description"
+              rows="4"
+              class="w-full px-4 py-3 border border-gray-300 dark:border-gray-600 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#9B8AFB] bg-white dark:bg-gray-700 text-[#111827] dark:text-white resize-none"
+              placeholder="Describe the issue or request"
+            ></textarea>
+            <p id="description-error" class="text-red-500 text-sm mt-1"></p>
+          </div>
+          
+          <div>
+            <label class="block text-sm font-medium text-[#111827] dark:text-white mb-2" for="status">
+              Status
+            </label>
+            <select
+              id="status"
+              name="status"
+              class="w-full px-4 py-3 border border-gray-300 dark:border-gray-600 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#9B8AFB] bg-white dark:bg-gray-700 text-[#111827] dark:text-white"
+            >
+              <option value="open">Open</option>
+              <option value="in_progress">In Progress</option>
+              <option value="closed">Closed</option>
+            </select>
+            <p id="status-error" class="text-red-500 text-sm mt-1"></p>
+          </div>
+          
+          <div class="flex justify-end gap-3 pt-4">
+            <button
+              type="button"
+              id="cancel-modal"
+              class="flex min-w-[84px] max-w-full sm:max-w-[120px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-12 px-5 bg-zinc-100 text-zinc-800 dark:text-zinc-200 text-base font-bold leading-normal tracking-[0.015em] hover:bg-zinc-200 dark:hover:bg-zinc-800 transition-colors"
+            >
+              Cancel
+            </button>
+            <button
+              type="submit"
+              class="flex min-w-[84px] max-w-full sm:max-w-[180px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-12 px-5 bg-[#9B8AFB] text-white text-base font-bold leading-normal tracking-[0.015em] hover:bg-[#9B8AFB]/90 transition-colors"
+            >
+              <span id="submit-text">Create Ticket</span>
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
