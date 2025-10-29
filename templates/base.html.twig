@@ -5,6 +5,49 @@
     <meta name="viewport" content="width=device-width,initial-scale=1" />
     <title>TicketApp</title>
     <link rel="stylesheet" href="/assets/css/index.css" />
+    <style>
+      /* Custom toast styling */
+      .toast-container {
+        position: fixed;
+        top: 20px;
+        right: 20px;
+        z-index: 9999;
+        pointer-events: none;
+      }
+      .toast {
+        background: white;
+        color: #111827;
+        padding: 16px 20px;
+        border-radius: 8px;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+        margin-bottom: 10px;
+        min-width: 300px;
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        pointer-events: auto;
+        transform: translateX(400px);
+        transition: transform 0.3s ease;
+        border-left: 4px solid #9B8AFB;
+      }
+      .toast.show {
+        transform: translateX(0);
+      }
+      .toast.error {
+        border-left-color: #ef4444;
+      }
+      .toast-icon {
+        width: 20px;
+        height: 20px;
+        flex-shrink: 0;
+      }
+      .toast-icon.success {
+        color: #9B8AFB;
+      }
+      .toast-icon.error {
+        color: #ef4444;
+      }
+    </style>
 
   </head>
   <body class="bg-white dark:bg-[#111827] text-[#111827] dark:text-white transition-colors duration-300">
@@ -16,6 +59,36 @@
 
     {% include 'components/footer.html.twig' %}
 
-
+    <div id="toast-container" class="toast-container"></div>
+    <script>
+      // Simple toast implementation
+      window.toast = {
+        success: function(message) {
+          this.show(message, 'success');
+        },
+        error: function(message) {
+          this.show(message, 'error');
+        },
+        show: function(message, type) {
+          const container = document.getElementById('toast-container');
+          const toast = document.createElement('div');
+          toast.className = `toast ${type}`;
+          
+          const icon = type === 'success' 
+            ? '<svg class="toast-icon success" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>'
+            : '<svg class="toast-icon error" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>';
+          
+          toast.innerHTML = `${icon}<span>${message}</span>`;
+          container.appendChild(toast);
+          
+          setTimeout(() => toast.classList.add('show'), 100);
+          
+          setTimeout(() => {
+            toast.classList.remove('show');
+            setTimeout(() => container.removeChild(toast), 300);
+          }, 3000);
+        }
+      };
+    </script>
   </body>
 </html>

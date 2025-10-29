@@ -140,11 +140,25 @@ try {
     }
 
     document.getElementById('logout-btn')?.addEventListener('click', function() {
-      window.location.href = '/?action=logout';
+      if (window.toast) {
+        window.toast.success('Logged out successfully!');
+        setTimeout(() => {
+          window.location.href = '/?action=logout';
+        }, 1000);
+      } else {
+        window.location.href = '/?action=logout';
+      }
     });
 
     document.getElementById('mobile-logout-btn')?.addEventListener('click', function() {
-      window.location.href = '/?action=logout';
+      if (window.toast) {
+        window.toast.success('Logged out successfully!');
+        setTimeout(() => {
+          window.location.href = '/?action=logout';
+        }, 1000);
+      } else {
+        window.location.href = '/?action=logout';
+      }
     });
 
     updateHeader();

@@ -75,4 +75,18 @@
     </main>
   </div>
 </div>
+
+<script>
+// Toast is available globally
+
+document.addEventListener('DOMContentLoaded', function() {
+  {% if error %}
+    toast.error('{{ error }}');
+  {% endif %}
+  
+  {% if success %}
+    toast.success('{{ success }}');
+  {% endif %}
+});
+</script>
 {% endblock %}
