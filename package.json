@@ -4,9 +4,9 @@
   "private": true,
   "description": "Ticket App",
   "scripts": {
-    "build-css": "postcss ./public/assets/css/index.css --watch",
-    "build": "postcss ./public/assets/css/index.css",
-    "watch-css": "postcss ./public/assets/css/index.css --watch"
+    "build-css": "postcss ./assets/src/css/index.css -o ./public/assets/css/index.css --watch",
+    "build": "postcss ./assets/src/css/index.css -o ./public/assets/css/index.css",
+    "watch-css": "postcss ./assets/src/css/index.css -o ./public/assets/css/index.css --watch"
   },
   "dependencies": {
     "@tailwindcss/postcss": "^4.1.16",
