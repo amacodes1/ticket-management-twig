@@ -19,6 +19,11 @@ RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local
 # Enable Apache mod_rewrite
 RUN a2enmod rewrite
 
+# Use Render's PORT environment variable
+ENV PORT=10000
+RUN sed -i "s/Listen 80/Listen ${PORT}/" /etc/apache2/ports.conf && \
+    sed -i "s/<VirtualHost \*:80>/<VirtualHost \*:${PORT}>/" /etc/apache2/sites-available/000-default.conf
+
 # Copy project files
 COPY . /var/www/html/
 
@@ -31,12 +36,12 @@ RUN composer install --no-dev --optimize-autoloader
 RUN npm ci
 RUN npm run build
 
-# Copy public assets to Apache document root
-RUN cp -r /var/www/html/public/assets /var/www/html/assets
-
-# Configure Apache
+# Configure Apache (optional custom config)
 COPY apache-config.conf /etc/apache2/sites-available/000-default.conf
 
 # Set permissions
 RUN chown -R www-data:www-data /var/www/html
 RUN chmod -R 755 /var/www/html
+
+# Start Apache in foreground
+CMD ["apache2-foreground"]

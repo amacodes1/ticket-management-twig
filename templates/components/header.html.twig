@@ -69,7 +69,12 @@
 
 <script>
   // Inject Twig user data safely
-const sessionData = JSON.parse('{{ user is defined and user ? user|json_encode : "null" }}');
+let sessionData = null;
+try {
+  sessionData = {{ user is defined and user ? user|json_encode|raw : 'null' }};
+} catch (e) {
+  sessionData = null;
+}
 
 
   document.addEventListener('DOMContentLoaded', function () {
