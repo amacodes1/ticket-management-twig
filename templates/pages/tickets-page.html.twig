@@ -29,7 +29,7 @@
             </svg>
             <input
               id="ticket-search"
-              class="w-full sm:w-[600px] md:w-[600px] lg:w-[800px] pl-12 pr-4 py-3 items-center justify-center rounded-full focus:outline-0 focus:ring-2 focus:ring-[#9B8AFB]/50 border border-gray-300 dark:border-gray-700 bg-white dark:bg-gray-800 transition-shadow text-xs sm:text-base text-[#111827] dark:text-white"
+              class="w-full sm:w-[600px] md:w-[600px] lg:w-[800px] pl-12 pr-4 py-3 items-center justify-center rounded-full focus:outline-0 focus:ring-1 focus:ring-[#9B8AFB]/50 border border-gray-300 bg-white transition-shadow text-xs sm:text-base text-[#111827]"
               placeholder="Search tickets by title, description..."
               type="text"
             />
@@ -79,7 +79,15 @@ document.addEventListener('DOMContentLoaded', function() {
   // Close modal
   cancelBtn?.addEventListener('click', function() {
     modal?.classList.add('hidden');
+    resetForm();
   });
+  
+  function resetForm() {
+    form?.reset();
+    ticketToEdit = null;
+    document.getElementById('modal-title').textContent = 'Create New Ticket';
+    document.getElementById('submit-text').textContent = 'Create Ticket';
+  }
   
   // Close on backdrop click
   modal?.addEventListener('click', function(e) {
@@ -107,25 +115,41 @@ document.addEventListener('DOMContentLoaded', function() {
     document.getElementById('description-error').textContent = '';
     document.getElementById('status-error').textContent = '';
     
-    // Create ticket
-    const ticket = {
-      id: Date.now().toString() + Math.random().toString(36).substr(2),
-      title: title,
-      description: description,
-      status: status,
-      priority: 3,
-      createdAt: new Date().toISOString(),
-      updatedAt: new Date().toISOString()
-    };
-    
-    // Save to localStorage
-    const tickets = JSON.parse(localStorage.getItem('tickets') || '[]');
-    tickets.unshift(ticket);
-    localStorage.setItem('tickets', JSON.stringify(tickets));
+    if (ticketToEdit) {
+      // Update existing ticket
+      const tickets = JSON.parse(localStorage.getItem('tickets') || '[]');
+      const index = tickets.findIndex(t => t.id === ticketToEdit.id);
+      if (index !== -1) {
+        tickets[index] = {
+          ...tickets[index],
+          title: title,
+          description: description,
+          status: status,
+          updatedAt: new Date().toISOString()
+        };
+        localStorage.setItem('tickets', JSON.stringify(tickets));
+      }
+      ticketToEdit = null;
+    } else {
+      // Create new ticket
+      const ticket = {
+        id: Date.now().toString() + Math.random().toString(36).substr(2),
+        title: title,
+        description: description,
+        status: status,
+        priority: 3,
+        createdAt: new Date().toISOString(),
+        updatedAt: new Date().toISOString()
+      };
+      
+      const tickets = JSON.parse(localStorage.getItem('tickets') || '[]');
+      tickets.unshift(ticket);
+      localStorage.setItem('tickets', JSON.stringify(tickets));
+    }
     
     // Close modal and reset form
     modal.classList.add('hidden');
-    form.reset();
+    resetForm();
     
     // Refresh tickets display
     loadTickets();
@@ -170,7 +194,7 @@ document.addEventListener('DOMContentLoaded', function() {
         <div class="flex items-center justify-between">
           <p class="text-xl font-bold text-[#111827] dark:text-white">${ticket.title}</p>
           <div class="flex items-center gap-2">
-            <button class="p-2 rounded-full cursor-pointer hover:bg-gray-100 text-gray-600 dark:text-gray-300">
+            <button class="p-2 rounded-full cursor-pointer hover:bg-gray-100 text-gray-600 dark:text-gray-300" onclick="editTicket('${ticket.id}')">
               <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"/>
               </svg>
@@ -192,8 +216,27 @@ document.addEventListener('DOMContentLoaded', function() {
     `).join('');
   }
   
-  // Delete modal functionality
+  // Edit and Delete modal functionality
   let ticketToDelete = null;
+  let ticketToEdit = null;
+  
+  window.editTicket = function(id) {
+    const tickets = JSON.parse(localStorage.getItem('tickets') || '[]');
+    ticketToEdit = tickets.find(t => t.id === id);
+    if (ticketToEdit) {
+      // Populate form with ticket data
+      document.getElementById('title').value = ticketToEdit.title;
+      document.getElementById('description').value = ticketToEdit.description || '';
+      document.getElementById('status').value = ticketToEdit.status;
+      
+      // Update modal title and button text
+      document.getElementById('modal-title').textContent = `Edit Ticket #${ticketToEdit.id.slice(0, 8).toUpperCase()}`;
+      document.getElementById('submit-text').textContent = 'Save Changes';
+      
+      // Show modal
+      modal?.classList.remove('hidden');
+    }
+  };
   const deleteModal = document.getElementById('delete-modal');
   const confirmDeleteBtn = document.getElementById('confirm-delete-btn');
   const cancelDeleteBtn = document.getElementById('cancel-delete-btn');

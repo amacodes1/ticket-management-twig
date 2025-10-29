@@ -1,4 +1,6 @@
-{% extends 'base.html.twig' %} {% block content %}
+{% extends 'base.html.twig' %}
+
+{% block content %}
 <main class="flex-1 py-20 px-6 md:px-16 lg:px-20 mb-20 md:mb-36">
   <div class="mx-auto max-w-7xl py-12">
     <h1
@@ -168,4 +170,36 @@
     </div>
   </div>
 </main>
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  function updateDashboardStats() {
+    const tickets = JSON.parse(localStorage.getItem('tickets') || '[]');
+    
+    const totalTickets = tickets.length;
+    const openTickets = tickets.filter(t => t.status === 'open').length;
+    const progressTickets = tickets.filter(t => t.status === 'in_progress').length;
+    const closedTickets = tickets.filter(t => t.status === 'closed').length;
+    
+    document.getElementById('stat-total').textContent = totalTickets;
+    document.getElementById('stat-open').textContent = openTickets;
+    document.getElementById('stat-inprog').textContent = progressTickets;
+    document.getElementById('stat-closed').textContent = closedTickets;
+  }
+  
+  // Update user name if available
+  let user = null;
+  try {
+    user = {{ user is defined and user ? user|json_encode|raw : 'null' }};
+  } catch (e) {
+    user = null;
+  }
+  
+  if (user && user.name) {
+    document.getElementById('dashboard-user').textContent = user.name;
+  }
+  
+  updateDashboardStats();
+});
+</script>
+
 {% endblock %}

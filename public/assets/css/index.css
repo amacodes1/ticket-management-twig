@@ -1705,6 +1705,9 @@ body {
 }
 /* Form styling classes */
 .space-y-6 > :not([hidden]) ~ :not([hidden]) { margin-top: 1.5rem; }
+.space-y-4 > :not([hidden]) ~ :not([hidden]) { margin-top: 1rem; }
+.h-20 { height: 5rem; }
+.pt-4 { padding-top: 1rem; }
 .text-zinc-800 { color: #27272a; }
 .text-zinc-200 { color: #e4e4e7; }
 .text-zinc-900 { color: #18181b; }
@@ -1773,6 +1776,31 @@ body {
 .text-\[#111827\] { color: #111827; }
 .dark\:text-gray-300 { color: #d1d5db; }
 .dark\:bg-red-900\/30 { background-color: rgba(127, 29, 29, 0.3); }
+.py-20 { padding-top: 5rem; padding-bottom: 5rem; }
+.mb-36 { margin-bottom: 9rem; }
+.md\:mb-36 { margin-bottom: 9rem; }
+.py-12 { padding-top: 3rem; padding-bottom: 3rem; }
+.sm\:text-2xl { font-size: 1.5rem; line-height: 2rem; }
+.mt-10 { margin-top: 2.5rem; }
+.sm\:mt-20 { margin-top: 5rem; }
+.lg\:grid-cols-4 { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+.bg-\[#9B8AFB\]\/10 { background-color: rgba(155, 138, 251, 0.1); }
+.bg-\[#9B8AFB\]\/20 { background-color: rgba(155, 138, 251, 0.2); }
+.bg-green-50 { background-color: #f0fdf4; }
+.bg-green-900\/20 { background-color: rgba(20, 83, 45, 0.2); }
+.bg-green-500\/20 { background-color: rgba(34, 197, 94, 0.2); }
+.bg-amber-50 { background-color: #fffbeb; }
+.bg-amber-900\/20 { background-color: rgba(120, 53, 15, 0.2); }
+.bg-amber-500\/20 { background-color: rgba(245, 158, 11, 0.2); }
+.bg-gray-900\/20 { background-color: rgba(17, 24, 39, 0.2); }
+.bg-gray-400\/20 { background-color: rgba(156, 163, 175, 0.2); }
+.text-green-600 { color: #16a34a; }
+.text-amber-600 { color: #d97706; }
+.text-4xl { font-size: 2.25rem; line-height: 2.5rem; }
+.w-56 { width: 14rem; }
+.hover\:scale-105:hover { transform: scale(1.05); }
+.transition-transform { transition-property: transform; }
+.duration-200 { transition-duration: 200ms; }
 
 .animate-fade-in-scale {
   animation: fade-in-scale 0.2s ease-out forwards;
