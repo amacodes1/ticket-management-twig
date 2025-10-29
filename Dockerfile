@@ -31,6 +31,12 @@ RUN composer install --no-dev --optimize-autoloader
 RUN npm ci
 RUN npm run build
 
+# Copy public assets to Apache document root
+RUN cp -r /var/www/html/public/assets /var/www/html/assets
+
+# Configure Apache
+COPY apache-config.conf /etc/apache2/sites-available/000-default.conf
+
 # Set permissions
 RUN chown -R www-data:www-data /var/www/html
-RUN chmod -R 755 /var/www/html/public
+RUN chmod -R 755 /var/www/html
